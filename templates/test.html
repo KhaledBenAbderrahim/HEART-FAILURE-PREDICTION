@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #eaeaea;
+            margin: 0;
+            padding-top: 10px;
+        }
+
+        .container {
+            max-width: 550px;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .btn-predict {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Patient Prediction</h1>
+        <img src="https://github.com/KhaledBenAbderrahim/HEART-FAILURE-PREDICTION/raw/main/heart_failure_image.png" alt="Heart Failure" style="display: block; margin: 0 auto 20px; max-width: 100%;">
+        <form>
+            <div class="form-group">
+                <label for="age">Patient's Age:</label>
+                <input type="number" class="form-control" id="age" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="anemia">Does the patient have Anemia?</label>
+                <select class="form-control" id="anemia" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cpk">Creatinine Phosphokinase Values:</label>
+                <input type="number" class="form-control" id="cpk" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="diabetes">Does the patient have Diabetes?</label>
+                <select class="form-control" id="diabetes" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bp">Does the patient have High Blood Pressure?</label>
+                <select class="form-control" id="bp" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ef">Ejection Fraction Values:</label>
+                <input type="number" class="form-control" id="ef" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="platelets">Platelet Values:</label>
+                <input type="number" class="form-control" id="platelets" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="creatinine">Serum Creatinine Values:</label>
+                <input type="number" class="form-control" id="creatinine" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sodium">Serum Sodium Values:</label>
+                <input type="number" class="form-control" id="sodium" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Patient's Gender:</label>
+                <select class="form-control" id="gender" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="smoking">Does the patient Smoke?</label>
+                <select class="form-control" id="smoking" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="number" class="form-control" id="time" min="0" required>
+            </div>
+
+            <div class="btn-predict">
+                <button type="submit" class="btn btn-primary">Predict Heart Feature</button>
+            </div>
+        </form>
+    </div>
+
+    <div style="position: fixed; bottom: 10px; right: 10px; background-color: white; padding: 5px;">
+        <a href="https://github.com/KhaledBenAbderrahim/HEART-FAILURE-PREDICTION/tree/main" target="_blank">View Source Code</a>
+    </div>
+</body>
+</html>
