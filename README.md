@@ -19,17 +19,17 @@ python -m venv venv
   <img src="heart_failure_image.png" alt="Heart Failure Prediction" width="500">
 </p>
 
-## Project Overview
+## :clipboard: Project Overview
 
 The goal of this project is to develop a data science model that accurately predicts the likelihood of heart failure in patients based on clinical and demographic features. Early detection and prediction of heart failure can significantly impact patient outcomes. This project utilizes machine learning techniques and a comprehensive dataset to create a predictive model that helps healthcare professionals identify individuals at higher risk of heart failure.
 
-## Technologies Used
+##  :rocket: Technologies Used
 
 - Jupyter Notebook
 - Flask
 - Python
 
-## Project Steps
+##  :chart_with_upwards_trend: Project Steps
 
 1. **Data Collection**: Gather a comprehensive dataset containing patient clinical and demographic information.
 
@@ -44,59 +44,16 @@ The goal of this project is to develop a data science model that accurately pred
 6. **Continuous Monitoring and Updates**: Monitor the model's performance, gather feedback, and make updates to improve accuracy.
 
 
-## Results and Impact
-
-The successful completion of this project provides healthcare professionals with a tool for predicting heart failure. Early detection and intervention can improve patient outcomes. The developed model and API assist in identifying individuals at risk of heart failure, enabling timely interventions and appropriate care.
-
-## Contributors
-
-- [khaled Ben Abderrahim](https://github.com/KhaledBenAbderrahim)
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-
-<h1 align="center"><img src="heart_icon.png" alt="Heart Icon" width="60"> Heart Failure Prediction using Data Science</h1>
-
-<p align="center">
-  <img src="heart_failure_image.png" alt="Heart Failure Prediction" width="500">
-</p>
-
-## :clipboard: Project Overview
-
-The goal of this project is to develop a data science model that accurately predicts the likelihood of heart failure in patients based on clinical and demographic features. Early detection and prediction of heart failure can significantly impact patient outcomes. This project utilizes machine learning techniques and a comprehensive dataset to create a predictive model that helps healthcare professionals identify individuals at higher risk of heart failure.
-
-## :rocket: Technologies Used
-
-- Jupyter Notebook
-- Flask
-- Python
-
-## :chart_with_upwards_trend: Project Steps
-
-1. **Data Collection:** Gather a comprehensive dataset containing patient clinical and demographic information.
-2. **Data Preprocessing:** Clean the dataset, handle missing values, outliers, and perform necessary transformations. Explore data using visualization techniques.
-3. **Feature Selection and Engineering:** Identify relevant features and apply engineering techniques to prepare the data for modeling.
-4. **Model Training:** Select and train machine learning algorithms using the prepared dataset.
-5. **Model Evaluation:** Assess the model's performance using appropriate metrics and techniques.
-6. **Model Deployment:** Create an API using Flask to deploy the trained model and provide predictions based on user input.
-7. **Continuous Monitoring and Updates:** Monitor the model's performance, gather feedback, and make updates to improve accuracy.
-
-## :page_facing_up: Documentation and Usage
-
-Detailed documentation, including data preprocessing, feature engineering, model selection, and evaluation results, can be found in the [project's documentation folder](/docs). A user guide and code snippets are provided for API usage.
-
 ## :bar_chart: Results and Impact
 
 The successful completion of this project provides healthcare professionals with a tool for predicting heart failure. Early detection and intervention can improve patient outcomes. The developed model and API assist in identifying individuals at risk of heart failure, enabling timely interventions and appropriate care.
 
 ## :busts_in_silhouette: Contributors
 
-- John Doe
-- Jane Smith
-- [Your Name](https://github.com/yourusername)
+- [khaled Ben Abderrahim](https://github.com/KhaledBenAbderrahim)
 
-## :scroll: License
+##  :scroll: License
 
 This project is licensed under the [MIT License](LICENSE).
+
+
