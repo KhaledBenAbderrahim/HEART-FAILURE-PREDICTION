@@ -56,6 +56,7 @@ The successful completion of this project provides healthcare professionals with
 
 This project is licensed under the [MIT License](LICENSE).
 
+
 <h1 align="center"><img src="heart_icon.png" alt="Heart Icon" width="60"> Heart Failure Prediction using Data Science</h1>
 
 <p align="center">
