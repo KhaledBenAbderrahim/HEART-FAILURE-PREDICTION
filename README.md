@@ -19,17 +19,17 @@ python -m venv venv
   <img src="heart_failure_image.png" alt="Heart Failure Prediction" width="500">
 </p>
 
-## Project Overview
+## :clipboard: Project Overview
 
 The goal of this project is to develop a data science model that accurately predicts the likelihood of heart failure in patients based on clinical and demographic features. Early detection and prediction of heart failure can significantly impact patient outcomes. This project utilizes machine learning techniques and a comprehensive dataset to create a predictive model that helps healthcare professionals identify individuals at higher risk of heart failure.
 
-## Technologies Used
+##  :rocket: Technologies Used
 
 - Jupyter Notebook
 - Flask
 - Python
 
-## Project Steps
+##  :chart_with_upwards_trend: Project Steps
 
 1. **Data Collection**: Gather a comprehensive dataset containing patient clinical and demographic information.
 
@@ -44,15 +44,16 @@ The goal of this project is to develop a data science model that accurately pred
 6. **Continuous Monitoring and Updates**: Monitor the model's performance, gather feedback, and make updates to improve accuracy.
 
 
-## Results and Impact
+## :bar_chart: Results and Impact
 
 The successful completion of this project provides healthcare professionals with a tool for predicting heart failure. Early detection and intervention can improve patient outcomes. The developed model and API assist in identifying individuals at risk of heart failure, enabling timely interventions and appropriate care.
 
-## Contributors
+## :busts_in_silhouette: Contributors
 
 - [khaled Ben Abderrahim](https://github.com/KhaledBenAbderrahim)
 
-## License
+##  :scroll: License
 
 This project is licensed under the [MIT License](LICENSE).
+
 
