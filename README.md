@@ -50,8 +50,6 @@ The successful completion of this project provides healthcare professionals with
 
 ## Contributors
 
-- John Doe
-- Jane Smith
 - [khaled Ben Abderrahim](https://github.com/KhaledBenAbderrahim)
 
 ## License
