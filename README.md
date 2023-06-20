@@ -13,7 +13,7 @@ Create a new environment
 python -m venv venv
 ```
 
-<h1 align="center">Heart Failure Prediction using Data Science</h1>
+<h1 align="center">Heart Failure Prediction using SVM</h1>
 
 <p align="center">
   <img src="heart_failure_image.png" alt="Heart Failure Prediction" width="500">
