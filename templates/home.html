@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Failure Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color:  #eaeaea;
+            margin: 0;
+            padding-top: 10px;
+        }
+
+        .container {
+            max-width: 550px;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 25px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .btn-predict {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Heart Failure Prediction</h1>
+        <img src="https://github.com/KhaledBenAbderrahim/HEART-FAILURE-PREDICTION/raw/main/heart_failure_image.png" alt="Heart Failure" style="display: block; margin: 0 auto 20px; max-width: 100%;">
+        <form id="predictionForm" action="{{ url_for('predict')}}"  method = "POST">
+            <div class="form-group">
+                <label for="age">Patient's Age:</label>
+                <input type="number" class="form-control" id="age" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="anemia">Does the patient have Anemia?</label>
+                <select class="form-control" id="anemia" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cpk">Creatinine Phosphokinase values:</label>
+                <input type="number" class="form-control" id="cpk" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="diabetes">Does the patient have Diabetes?</label>
+                <select class="form-control" id="diabetes" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bp">Does the patient have High Blood Pressure?</label>
+                <select class="form-control" id="bp" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ef">Ejection Fraction values:</label>
+                <input type="number" class="form-control" id="ef" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="platelets">Platelets values:</label>
+                <input type="number" class="form-control" id="platelets" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="creatinine">Serum Creatinine values:</label>
+                <input type="number" class="form-control" id="creatinine" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sodium">Serum Sodium values:</label>
+                <input type="number" class="form-control" id="sodium" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Patient's Gender:</label>
+                <select class="form-control" id="gender" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="smoking">Is the patient a smoker?</label>
+                <select class="form-control" id="smoking" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="number" class="form-control" id="time" min="0" required>
+            </div>
+
+            <div class="btn-predict">
+                <button type="button" class="btn btn-primary" onclick="predictHeartFeature()">Predict Heart Feature</button>
+            </div>
+        </form>
+    </div>
+
+    <div style="border-radius: 15px;position: fixed; bottom: 10px; right: 10px; background-color: white; padding: 5px;">
+        <a href="https://github.com/KhaledBenAbderrahim/HEART-FAILURE-PREDICTION/tree/main" target="_blank">View Source Code</a>
+    </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="resultModal" tabindex="-1" role="dialog" aria-labelledby="resultModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultModalLabel">Heart Failure Prediction Result</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="resultModalBody">
+                    <p>The prediction result will be displayed here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function predictHeartFeature() {
+            var age = document.getElementById('age').value;
+            var anemia = document.getElementById('anemia').value;
+            var cpk = document.getElementById('cpk').value;
+            var diabetes = document.getElementById('diabetes').value;
+            var bp = document.getElementById('bp').value;
+            var ef = document.getElementById('ef').value;
+            var platelets = document.getElementById('platelets').value;
+            var creatinine = document.getElementById('creatinine').value;
+            var sodium = document.getElementById('sodium').value;
+            var gender = document.getElementById('gender').value;
+            var smoking = document.getElementById('smoking').value;
+            var time = document.getElementById('time').value;
+
+            // Check if any input value is missing
+            if (
+                age === '' ||
+                anemia === '' ||
+                cpk === '' ||
+                diabetes === '' ||
+                bp === '' ||
+                ef === '' ||
+                platelets === '' ||
+                creatinine === '' ||
+                sodium === '' ||
+                gender === '' ||
+                smoking === '' ||
+                time === ''
+            ) {
+                alert('Please fill in all input fields.');
+                return;
+            }
+
+            // Perform prediction here
+            var predictionResult = 'Sample Prediction Result';
+
+            // Update the modal body with the prediction result
+            document.getElementById('resultModalBody').innerHTML = '<p>' +  {{prediction_text}}+ '</p>';
+
+            // Show the modal
+            $('#resultModal').modal('show');
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
