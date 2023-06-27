@@ -5,7 +5,7 @@
 #### Start by building the docker image with a defined name. This can take a while.
 
 ```
-docker build -t heart-failure-prediction-app 
+docker build -t heart-failure-prediction .
 ```
 
 ### Run the Docker image
