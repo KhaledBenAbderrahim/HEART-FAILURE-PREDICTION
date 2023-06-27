@@ -2,8 +2,7 @@ import pickle
 from flask import Flask, request,app,jsonify,render_template
 import numpy as np
 import pandas as pd
-import json
-import datetime
+
 
 scaler = pickle.load(open('./models/scaler.pkl','rb'))
 pickled_model = pickle.load(open('./models/SVModel.pkl','rb'))
@@ -95,6 +94,6 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,port=8000,host="0.0.0.0")
 
 
