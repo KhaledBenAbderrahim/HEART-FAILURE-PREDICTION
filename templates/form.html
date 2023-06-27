@@ -1,6 +1,190 @@
-<form action="/data" method = "POST">
-    <p>Name <input type = "text" name = "Name" /></p>
-    <p>City <input type = "text" name = "City" /></p>
-    <p>Country <input type = "text" name = "Country" /></p>
-    <p><input type = "submit" value = "Submit" /></p>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Failure Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #4CAF50;
+            margin: 0;
+            padding-top: 100px;
+        }
+
+        .container {
+            max-width: 400px;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .btn-predict {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Heart Failure Prediction</h1>
+        <img src="https://github.com/KhaledBenAbderrahim/HEART-FAILURE-PREDICTION/raw/main/heart_failure_image.png" alt="Heart Failure" style="display: block; margin: 0 auto 20px; max-width: 100%;">
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="age">Patient's Age:</label>
+                <input type="number" class="form-control" id="age" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="anemia">Has the patient anemia?</label>
+                <select class="form-control" id="anemia" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cpk">Creatinine Phosphokinase values:</label>
+                <input type="number" class="form-control" id="cpk" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="diabetes">Has the patient diabetes?</label>
+                <select class="form-control" id="diabetes" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bp">Has the patient high blood pressure?</label>
+                <select class="form-control" id="bp" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ef">Ejection Fraction values:</label>
+                <input type="number" class="form-control" id="ef" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="platelets">Platelets values:</label>
+                <input type="number" class="form-control" id="platelets" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="creatinine">Serum Creatinine values:</label>
+                <input type="number" class="form-control" id="creatinine" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sodium">Serum Sodium values:</label>
+                <input type="number" class="form-control" id="sodium" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select class="form-control" id="gender" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="smoking">Is the patient a smoker?</label>
+                <select class="form-control" id="smoking" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Follow-up period (in days):</label>
+                <input type="number" class="form-control" id="time" min="0" required>
+            </div>
+
+            <div class="btn-predict">
+                <button type="button" class="btn btn-primary" onclick="openModal()">Predict Heart Feature</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function openModal() {
+            var age = document.getElementById('age').value;
+            var anemia = document.getElementById('anemia').value;
+            var cpk = document.getElementById('cpk').value;
+            var diabetes = document.getElementById('diabetes').value;
+            var bp = document.getElementById('bp').value;
+            var ef = document.getElementById('ef').value;
+            var platelets = document.getElementById('platelets').value;
+            var creatinine = document.getElementById('creatinine').value;
+            var sodium = document.getElementById('sodium').value;
+            var gender = document.getElementById('gender').value;
+            var smoking = document.getElementById('smoking').value;
+            var time = document.getElementById('time').value;
+
+            if (
+                age === '' ||
+                anemia === '' ||
+                cpk === '' ||
+                diabetes === '' ||
+                bp === '' ||
+                ef === '' ||
+                platelets === '' ||
+                creatinine === '' ||
+                sodium === '' ||
+                gender === '' ||
+                smoking === '' ||
+                time === ''
+            ) {
+                alert('Please fill in all input fields.');
+                return;
+            }
+
+            // Build the URL parameters
+            var params = new URLSearchParams();
+            params.append('age', age);
+            params.append('anemia', anemia);
+            params.append('cpk', cpk);
+            params.append('diabetes', diabetes);
+            params.append('bp', bp);
+            params.append('ef', ef);
+            params.append('platelets', platelets);
+            params.append('creatinine', creatinine);
+            params.append('sodium', sodium);
+            params.append('gender', gender);
+            params.append('smoking', smoking);
+            params.append('time', time);
+
+            // Open the modal in a new window/tab
+            var url = 'modal.html?' + params.toString();
+            window.open(url, '_blank');
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
